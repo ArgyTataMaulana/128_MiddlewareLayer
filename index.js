@@ -4,7 +4,6 @@ import Joi from 'joi'
 
 const app = express()
 const port = 3000
-const {pool} = pg
 
 const pool = new pg.Pool({
     user: 'postgres',
@@ -94,7 +93,7 @@ function validateBody(schema) {
 
 // middleware untuk validasi params id
 function validateParams(schema) {
-    const validate = (req, res, next) => {
+    return (req, res, next) => {
         const { error, value } = schema.validate(req.params)
 
         if (error) {
