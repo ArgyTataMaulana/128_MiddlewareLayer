@@ -46,5 +46,7 @@ function successResponse (res, message, data, status = 200) {
 }
 
 function errorResponse (res, message, error, status = 500) {
-    
+    return res.status(status).json({
+        
+    })
 }
