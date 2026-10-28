@@ -53,3 +53,8 @@ function errorResponse (res, message, error, status = 500) {
         error: details,
     })
 }
+
+// joi validation schema
+const biodataSchema = Joi.object({
+    
+})
