@@ -5,3 +5,11 @@ import Joi from 'joi'
 const app = express()
 const port = 3000
 const {pool} = pg
+
+const pool = new pg.Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'mahasiswa',
+    password: 'Satoru12345',
+    port: 5432,
+})
