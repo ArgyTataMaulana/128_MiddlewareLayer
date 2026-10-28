@@ -91,3 +91,25 @@ function validateBody(schema) {
         next()
     }
 }
+
+// middleware untuk validasi params id
+function validateParams(schema) {
+    const validate = (req, res, next) => {
+        const { error, value } = schema.validate(req.params)
+
+        if (error) {
+            return errorResponse(
+                res,
+                'parameter tidak valid',
+                400,
+                error.details.map(item => ({
+                    field: item.path.join('.'),
+                    message: item.message,
+                }))
+            )
+        }
+
+        req.params = value
+        next()
+    }
+}
