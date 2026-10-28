@@ -16,3 +16,9 @@ const pool = new pg.Pool({
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+// middleware logging
+
+app.use((req, res, next) => {
+    const start = Date.now()
+})
